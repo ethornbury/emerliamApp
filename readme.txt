@@ -24,7 +24,8 @@ import { Button,View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-Build a simple first screen
+Build a simple first screen. The scrren below is declared const, you have that option or to declare as a function.
+As a const you need to remember to declare it above where it is called in your file. With a function, this is not an issue. 
 
 const homeScreen = ({navigation}) => {
   return (
