@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Text, View, Button, StyleSheet, SafeAreaView, TextInput } from 'react-native';
+import { Text, View, Button, StyleSheet, SafeAreaView, TextInput, Dimensions } from 'react-native';
 //import * as rn from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import MapView from 'react-native-maps';
 
 
 // function FormLogin({navigation}){
@@ -158,6 +159,16 @@ function AboutScreen({ route, navigation }) {
         <Separator />
         <Button title="Go back to first screen in stack" onPress={() => navigation.popToTop()} />
         <Separator />
+        <MapView
+           style={styles.map}
+           initialRegion={{
+            latitude: 53.34868149582042,
+            longitude: -6.2424821875395855,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        />
+        
         <Text>Any text goes here</Text>
       
       </View>
@@ -186,6 +197,8 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'top',
       marginHorizontal: 16,
+      backgroundColor: '#fff',
+      
     },
     title: {
       textAlign: 'center',
@@ -232,6 +245,15 @@ const styles = StyleSheet.create({
         borderColor: 'grey',
         borderStyle: 'solid',
         borderRadius: 3
+      },
+      map: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
       },
   })
 
