@@ -53,7 +53,7 @@ function HomeScreen({ navigation }) {
     //remember to add new route buttons here and to app function!!
   return (
     <View style={styles.container}>
-      <Text>Home Screen</Text>
+     
 
       <Button style={styles.button}
         title="Details and passing params"
@@ -66,7 +66,8 @@ function HomeScreen({ navigation }) {
       <Button style={styles.button} title="About" onPress={() => navigation.navigate('About')} />
       <Separator/>
       <Button title="Another" onPress={() => navigation.navigate('Another')} />
-
+      <Separator/>
+      <Text>Anything else goes here</Text>
     </View>
   );
 }
@@ -77,9 +78,6 @@ function DetailsScreen({ route, navigation }) {
   const { otherParam } = route.params;
   return (
     <View style={styles.container}>
-      <Text>Details Screen</Text>
-      <Text>itemId: {JSON.stringify(itemId)}</Text>
-      <Text>otherParam: {JSON.stringify(otherParam)}</Text>
       <Button
         title="Go to Details... again"
         onPress={() =>
@@ -96,6 +94,10 @@ function DetailsScreen({ route, navigation }) {
       <Button title="Another" onPress={() => navigation.navigate('Another')} />
       <Separator/>
       <Button title="Go back" onPress={() => navigation.goBack()} />
+      <Separator/>
+      <Text>Passes params below</Text>
+      <Text>itemId: {JSON.stringify(itemId)}</Text>
+      <Text>otherParam: {JSON.stringify(otherParam)}</Text>
     </View>
   );
 }
@@ -104,15 +106,7 @@ function AnotherScreen({navigation}){
   const [text, setText] = useState('');
   return (
     <View style={styles.container}>
-      <TextInput
-        style={{height: 40}}
-        placeholder="Type here to translate!"
-        onChangeText={text => setText(text)}
-        defaultValue={text}
-      />
-      <Text style={{padding: 10, fontSize: 42}}>
-        {text.split(' ').map((word) => word && '🍕').join(' ')}
-      </Text>
+     
      <Separator/>
       <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
       <Separator/>
@@ -130,6 +124,18 @@ function AnotherScreen({navigation}){
       <Button title="Another" onPress={() => navigation.navigate('Another')} />
       <Separator/>
       <Button title="Go back" onPress={() => navigation.goBack()} />
+      <Separator/>
+      <Text>Click below here to input data that will be passed to the details page</Text>
+      <Separator/>
+      <TextInput
+        style={{height: 40}}
+        placeholder="Type here to input!"
+        onChangeText={text => setText(text)}
+        defaultValue={text}
+      />
+      <Text style={{padding: 10, fontSize: 42}}>
+        {text.split(' ').map((word) => word && '🍕').join(' ')}
+      </Text>
     </View>
   );
 }
@@ -140,8 +146,6 @@ function AboutScreen({ route, navigation }) {
 
     return (
       <View style={styles.container}>
-        <Text>About Screen</Text>
-      
         <Button 
           style={styles.button}
           title="About again"
@@ -153,6 +157,9 @@ function AboutScreen({ route, navigation }) {
         <Button style={styles.button} title="Go back" onPress={() => navigation.goBack()} />
         <Separator />
         <Button title="Go back to first screen in stack" onPress={() => navigation.popToTop()} />
+        <Separator />
+        <Text>Any text goes here</Text>
+      
       </View>
     );
   }
@@ -177,7 +184,7 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'center',
+      justifyContent: 'top',
       marginHorizontal: 16,
     },
     title: {
