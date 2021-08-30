@@ -162,3 +162,12 @@ function App() {
 }
 
 export default App;
+
+--- when adding maps
+see this: https://docs.expo.dev/versions/latest/sdk/map-view/
+
+npm install react-native-maps --save-exact
+expo install react-native-maps
+
+Code to add:
+import MapView from 'react-native-maps';

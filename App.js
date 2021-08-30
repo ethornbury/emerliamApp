@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, Button, StyleSheet, SafeAreaView, TextInput } from 'react-native';
+import { Text, View, Button, StyleSheet, SafeAreaView, TextInput, StatusBar } from 'react-native';
 //import * as rn from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -53,7 +53,6 @@ function HomeScreen({ navigation }) {
     //remember to add new route buttons here and to app function!!
   return (
     <View style={styles.container}>
-     
 
       <Button style={styles.button}
         title="Details and passing params"
@@ -68,6 +67,7 @@ function HomeScreen({ navigation }) {
       <Button title="Another" onPress={() => navigation.navigate('Another')} />
       <Separator/>
       <Text>Anything else goes here</Text>
+      
     </View>
   );
 }
@@ -169,6 +169,8 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
+    <Text style={{ color: '#fff' }}>Notice that the status bar has light text!</Text>
+    <StatusBar style="light" />
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
