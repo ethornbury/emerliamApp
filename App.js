@@ -169,7 +169,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-    <Text style={{ color: '#fff' }}>Notice that the status bar has light text!</Text>
+    <Text style={{ color: '#f4f4f4' }}>Notice that the status bar has light text!</Text>
     <StatusBar style="light" />
     <NavigationContainer>
       <Stack.Navigator>
